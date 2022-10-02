@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="layouts :: header"></head>
+<nav th:replace="layouts :: navbar"></nav><!--tag must be same as in layouts-->
+<body>
+    <div class="container">
+        <h4>Current tasks</h4>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>name</th>
+                    <th>status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="aTask : ${tasks}">
+                    <td th:text="${aTask.name}"/>
+                    <td th:text="${aTask.status}"/>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Workers</h4>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>name</th>
+                    <th>email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="aWorker : ${workers}">
+                    <td th:text="${aWorker.name}"/>
+                    <td th:text="${aWorker.email}"/>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Workers-Tasks</h4>
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th>name</th>
+                <th>task</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="wt : ${worker_tasks}">
+                <td th:text="${wt.name}"/>
+                <td th:text="${wt.taskName}"/>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>

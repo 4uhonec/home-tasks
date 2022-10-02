@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts :: header"></head>
+<body>
+<nav th:replace="layouts :: navbar"></nav>
+<div class="container">
+    <h3>Tasks List</h3>
+    <hr>
+    <a th:href="@{/tasks/new}" class="btn btn-primary btn-sm mb-3">Add task</a>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>name</th>
+            <th>status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="task : ${tasks}">
+            <td th:text="${task.name}"/>
+            <td th:text="${task.status}"/>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
